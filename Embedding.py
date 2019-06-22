@@ -36,3 +36,17 @@ def load_fasttext(word_index):
         if embedding_vector is not None: embedding_matrix[i] = embedding_vector
 
     return embedding_matrix
+
+np.save("x_train",x_train)
+np.save("x_test",x_test)
+np.save("y_train",y_train)
+np.save("features",features)
+np.save("test_features",test_features)
+np.save("word_index.npy",word_index)
+glove_embeddings = load_glove(word_index)
+fasttext_embeddings = load_fasttext(word_index)
+embedding_matrix = np.mean([glove_embeddings,fasttext_embeddings], axis=0)
+del glove_embeddings,fasttext_embeddings
+gc.collect()
+
+np.shape(embedding_matrix)
