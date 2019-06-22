@@ -47,3 +47,10 @@ def get_model():
     model.summary()
 
     return model
+#training
+model = get_model()
+batch_size = 412
+epochs = 30
+
+model.fit(x_train, y_train, batch_size=batch_size, epochs=epochs,
+              validation_data=(x_test, y_test))
