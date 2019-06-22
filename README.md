@@ -7,7 +7,6 @@ Capsule network uses the dynamic routing algorithm which helps in preserving not
 ## Requirements
 * Anaconda
 * Keras
-  * pip install keras
   
 ## Usage
 Run the files in the following order:
@@ -41,5 +40,19 @@ For the embedding matrix, I used **glove embedding** and **fasttext embedding**.
  7. **Predict.py** contains the model.predict() and the softmax() function. <br>
  It calculates the number of hits at various indexes of the sorted list of lists of probabilities.
  
+## Reference
 
+@article{zhao2018investigating,
+  title={Investigating Capsule Networks with Dynamic Routing for Text Classification},
+  author={Zhao, Wei and Ye, Jianbo and Yang, Min and Lei, Zeyang and Zhang, Suofei and Zhao, Zhou},
+  journal={arXiv preprint arXiv:1804.00538},
+  year={2018}
+}
+
+@article{zhao2018investigating,
+  title={Dynamic Routing Between Capsules},
+  author={Sara Sabour, Nicholas Frosst, Geoffrey E Hinton},
+  journal={arXiv:1710.09829},
+  year={2017}
+}
 
