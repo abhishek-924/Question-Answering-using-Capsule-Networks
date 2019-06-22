@@ -12,10 +12,10 @@ Capsule network uses the dynamic routing algorithm which helps in preserving not
 ## Usage
 Run the files in the following order:
 1. **Libraries.py** contains all the libraries to be imported initially. 
-2. **preprocessing.py** has all the functions for preprocessing the dataset.
+2. **preprocessing.py** has all the functions for preprocessing the dataset. <br>
 The ‘question’ and ‘specification’ columns were merged together into a new column named ‘question_text’. For preprocessing the data, first, the short forms of words are changed to their original forms such as changing ‘cause’ to ‘because’ or ‘i’m’ to ‘I am’. After correcting such spellings removal of the punctuations like{ ',', '.', '"', ':', ')', '(',} is carried out. Next, the numbers such as{1,2,3} and special characters such as {@, #, $}are removed along with stop words like {is, are, will}. All the missing values in the dataset are then replaced by a random string.
 
-3. **Embedding.py** contains word embeddings. 
+3. **Embedding.py** contains word embeddings. <br>
 For the embedding matrix, I used **glove embedding** and **fasttext embedding**. The glove pretrained vector can be found on <https://nlp.stanford.edu/projects/glove/> and the fasttext pretrained vector from <https://fasttext.cc/docs/en/english-vectors.html>.
  The final embedding matrix was calculated by taking the mean of the glove and fasttext embedding. 
 
@@ -30,7 +30,7 @@ For the embedding matrix, I used **glove embedding** and **fasttext embedding**.
  The model.compile() has the following parameters:
   * loss='binary_crossentropy'
   * optimizer=optimizers.Adam(Lr=0.001)
-  * metrics=['accuracy']
+  * metrics=['accuracy'] <br>
  Here, Lr is the learning rate which is set to 0.001
  
 
