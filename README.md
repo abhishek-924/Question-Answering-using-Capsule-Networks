@@ -42,15 +42,15 @@ For the embedding matrix, I used **glove embedding** and **fasttext embedding**.
  
 ## Reference
 
-* **Investigating Capsule Networks with Dynamic Routing for Text Classification**
-  Authors: Zhao, Wei and Ye, Jianbo and Yang, Min and Lei, Zeyang and Zhang, Suofei and Zhao, Zhou
-  Journal: arXiv preprint arXiv:1804.00538
-  Year: 2018
+* **Investigating Capsule Networks with Dynamic Routing for Text Classification** <br>
+  Authors: Zhao, Wei and Ye, Jianbo and Yang, Min and Lei, Zeyang and Zhang, Suofei and Zhao, Zhou <br>
+  Journal: arXiv preprint arXiv:1804.00538 <br>
+  Year: 2018 <br>
   Link : <https://arxiv.org/abs/1804.00538>
   
-* **Dynamic Routing Between Capsules**
-  Authors: Sara Sabour, Nicholas Frosst, Geoffrey E Hinton
-  Journal : arXiv:1710.09829
-  Year: 2017
+* **Dynamic Routing Between Capsules** <br>
+  Authors: Sara Sabour, Nicholas Frosst, Geoffrey E Hinton <br>
+  Journal : arXiv:1710.09829 <br>
+  Year: 2017 <br>
   Link: <https://arxiv.org/abs/1804.00538>
 
