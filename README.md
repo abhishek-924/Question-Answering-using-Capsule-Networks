@@ -6,13 +6,15 @@ Capsule network uses the dynamic routing algorithm which helps in preserving not
 
 ## Requirements
 * Anaconda
-* Keras
+* Keras <br>
+You can either run the code on python 3.6 or on the kaggle kernel GPU.
+
   
 ## Usage
 Run the files in the following order:
 1. **Libraries.py** contains all the libraries to be imported initially. 
 
-2. **Dataset.py** consists of the importing the training and testing datasets. For the training dataset, rows containing "no answer" are removed. 
+2. **Dataset.py** consists of the importing the training and testing datasets. For the training dataset, rows containing "no answer" are removed. The dataset is imported in the kaggle kernel format. You can change it for running on python 3.6
 
 3. **Preprocessing.py** has all the functions for preprocessing the dataset. <br>
 The ‘question’ and ‘specification’ columns were merged together into a new column named ‘question_text’. For preprocessing the data, first, the short forms of words are changed to their original forms such as changing ‘cause’ to ‘because’ or ‘i’m’ to ‘I am’. After correcting such spellings removal of the punctuations like{ ',', '.', '"', ':', ')', '(',} is carried out. Next, the numbers such as{1,2,3} and special characters such as {@, #, $}are removed along with stop words like {is, are, will}. All the missing values in the dataset are then replaced by a random string.
