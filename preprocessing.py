@@ -148,3 +148,78 @@ def replace_typical_misspell(text):
 def tabs(text):
     
         return re.sub(r"[\t]*",'',text)
+from sklearn.preprocessing import StandardScaler
+
+def add_features(df):
+    
+    df['question_text'] = df['question_text'].apply(lambda x:str(x))
+    df['total_length'] = df['question_text'].apply(len)
+    df['capitals'] = df['question_text'].apply(lambda comment: sum(1 for c in comment if c.isupper()))
+    df['caps_vs_length'] = df.apply(lambda row: float(row['capitals'])/float(row['total_length']),
+                                axis=1)
+    df['num_words'] = df.question_text.str.count('\S+')
+    df['num_unique_words'] = df['question_text'].apply(lambda comment: len(set(w for w in comment.split())))
+    df['words_vs_unique'] = df['num_unique_words'] / df['num_words']  
+    return df
+
+def load_and_prec():
+    train_df = df_train
+    test_df = df_test
+    print("Train shape : ",train_df.shape)
+    print("Test shape : ",test_df.shape)
+    
+    # lower
+    train_df["question_text"] = train_df["question_text"].apply(lambda x: x.lower())
+    test_df["question_text"] = test_df["question_text"].apply(lambda x: x.lower())
+
+    # Clean the text
+    train_df["question_text"] = train_df["question_text"].apply(lambda x: clean_text(x))
+    test_df["question_text"] = test_df["question_text"].apply(lambda x: clean_text(x))
+    
+    # Clean numbers
+    train_df["question_text"] = train_df["question_text"].apply(lambda x: clean_numbers(x))
+    test_df["question_text"] = test_df["question_text"].apply(lambda x: clean_numbers(x))
+    
+    # Clean speelings
+    train_df["question_text"] = train_df["question_text"].apply(lambda x: replace_typical_misspell(x))
+    test_df["question_text"] = test_df["question_text"].apply(lambda x: replace_typical_misspell(x))
+    
+    ## fill up the missing values
+    train_X = train_df["question_text"].fillna("_##_").values
+    test_X = test_df["question_text"].fillna("_##_").values
+
+    
+    ##Adding features
+    train = add_features(train_df)
+    test = add_features(test_df)
+
+    features = train[['caps_vs_length', 'words_vs_unique']].fillna(0)
+    test_features = test[['caps_vs_length', 'words_vs_unique']].fillna(0)
+
+    ss = StandardScaler()
+    ss.fit(np.vstack((features, test_features)))
+    features = ss.transform(features)
+    test_features = ss.transform(test_features)
+
+    ## Tokenize the sentences
+    tokenizer = Tokenizer(num_words=max_features)
+    tokenizer.fit_on_texts(list(train_X))
+    train_X = tokenizer.texts_to_sequences(train_X)
+    test_X = tokenizer.texts_to_sequences(test_X)
+
+    ## Pad the sentences 
+    train_X = pad_sequences(train_X, maxlen=maxlen)
+    test_X = pad_sequences(test_X, maxlen=maxlen)
+
+    ## Get the target values
+    train_y = train_df['target'].values
+    trn_idx = np.random.permutation(len(train_X))
+
+    train_X = train_X[trn_idx]
+    train_y = train_y[trn_idx]
+    features = features[trn_idx]
+    
+    return train_X, test_X, train_y, features, test_features, tokenizer.word_index
+ #Function call
+x_train, x_test, y_train, features, test_features, word_index = load_and_prec()
+
