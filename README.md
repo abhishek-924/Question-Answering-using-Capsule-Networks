@@ -19,15 +19,15 @@ Run the files in the following order:
  * Routings = 3
  
 ## Architecture
-<img src="Visualizations/Graph_1.png" width="600" height="300">
+<img src="Visualizations/architecture.png" width="600" height="300">
+
 ## Methodology
-<img src="Visualizations/Graph_1.png" width="600" height="300">
+<img src="Visualizations/methodology.png" width="600" height="300">
 
 ## Results
-<img src="Visualizations/Graph_1.png" width="600" height="300">
+<img src="Visualizations/results.png" width="600" height="300">
 
 ## References
-
 * **Investigating Capsule Networks with Dynamic Routing for Text Classification** <br>
   Authors: Zhao, Wei and Ye, Jianbo and Yang, Min and Lei, Zeyang and Zhang, Suofei and Zhao, Zhou <br>
   Journal: arXiv preprint arXiv:1804.00538 <br>
