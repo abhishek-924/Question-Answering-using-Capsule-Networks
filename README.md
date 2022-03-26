@@ -1,8 +1,5 @@
-# Capsule-Network
- Capsule networks are used for understanding the spatial information, as they help in making sense of words even if they are not adjacent, which makes the approach not one of the words to word analysis but provides the classifier to understand the context of the entire network.
-A capsule consists of a group of neurons along with the activation, which is the vector representation of instantiation parameters which helps in providing the probability for the existence of an entity in a piece of textual information.
-Capsule network uses the dynamic routing algorithm which helps in preserving not only one, but all the useful features for a sentence or a part of the text.
-
+# Question Answering using Capsule Networks
+ Capsule networks are considered to overcome the shortcomings of CNNs. They are used for understanding the spatial information, as they help in making sense of words even if they are not adjacent.A capsule consists of a group of neurons along with the activation, which helps in providing the probability for the existence of an entity in a piece of textual information.
 
 ## Requirements
 * Anaconda
